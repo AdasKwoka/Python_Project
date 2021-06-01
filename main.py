@@ -1,5 +1,6 @@
 import pygame
 from checkers.constants import WIDTH, HEIGHT
+from checkers.board import Board
 
 FPS = 60
 
@@ -12,6 +13,7 @@ def main():
     run = True
     # ustawienie odswiezania na 60FPS dzieki czemu bedziemy mieli plynna rozgrywke
     clock = pygame.time.Clock()
+    board = Board()
 
     while run:
         clock.tick(FPS)
@@ -21,7 +23,8 @@ def main():
                 run = False
             if event.type == pygame.MOUSEBUTTONDOWN:
                 pass
-
+        board.draw(WIN)
+        pygame.display.update()
     pygame.quit()
 
 
