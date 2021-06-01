@@ -7,7 +7,6 @@ class Board:
     def __init__(self):
         # przechowywanie obiektow w dwuwymiarowej tablicy
         self.board = []
-        self.selected_piece = None
         self.red_left = self.green_left = 12
         self.white_kings = self.black_kings = 0
         self.create_board()
