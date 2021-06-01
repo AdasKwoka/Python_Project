@@ -9,7 +9,7 @@ class Board:
         self.board = []
         self.selected_piece = None
         self.red_left = self.green_left = 12
-        self.red_kings = self.green_kings = 0
+        self.white_kings = self.black_kings = 0
         self.create_board()
 
     def draw_squares(self, win):
@@ -18,6 +18,21 @@ class Board:
             for col in range(row % 2, COLS, 2):
                 pygame.draw.rect(win, BLACK, (row*SQUARE_SIZE,
                                  col * SQUARE_SIZE, SQUARE_SIZE, SQUARE_SIZE))
+
+    def move(self, piece, row, col):
+        self.board[piece.row][piece.col], self.board[row][col] = self.board[row][col], self.board[piece.row][piece.col]
+        piece.move(row, col)
+
+        # Nie zmiennia pionkow na poczatkowych pozycjach poniewaz musza sie poruszyc
+        if row == ROWS or row == 0:
+            piece.make_king()
+            if piece.color == WHITE:
+                self.white_kings += 1
+            else:
+                self.black_kings += 1
+
+    def get_piece(self, row, col):
+        return self.board[row][col]
 
     def create_board(self):
         for row in range(ROWS):
