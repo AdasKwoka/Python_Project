@@ -27,8 +27,10 @@ class Board:
             piece.make_king()
             if piece.color == WHITE:
                 self.white_kings += 1
+                return 1
             else:
                 self.black_kings += 1
+                return 1
 
     def get_piece(self, row, col):
         return self.board[row][col]

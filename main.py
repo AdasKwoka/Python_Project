@@ -27,7 +27,6 @@ def main():
         clock.tick(FPS)
 
         if game.winner() != None:
-            print(game.winner())
             game.reset()
 
         for event in pygame.event.get():
@@ -36,7 +35,11 @@ def main():
             if event.type == pygame.MOUSEBUTTONDOWN:
                 pos = pygame.mouse.get_pos()
                 row, col = get_row_col_from_mouse(pos)
-                game.select(row, col)
+                if(row >= 8):
+                    if(col == 7):
+                        game.reset()
+                else:
+                    game.select(row, col)
 
         game.update()
     pygame.quit()
