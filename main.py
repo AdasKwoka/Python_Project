@@ -1,6 +1,8 @@
 import pygame
-from checkers.constants import WIDTH, HEIGHT, SQUARE_SIZE, BLACK
+from checkers.constants import WIDTH, HEIGHT, SQUARE_SIZE, BLACK, WHITE_TURN, BLACK_TURN, WINNER_WHITE, WINNER_BLACK, WHITE, BLACK
 from checkers.game import Game
+from checkers.winnerDisplay import WinnerDisplay
+import time
 
 FPS = 60
 
@@ -27,6 +29,16 @@ def main():
         clock.tick(FPS)
 
         if game.winner() != None:
+            winner = game.winner()
+            if(winner == WHITE):
+                winnerDisplay = WinnerDisplay(WINNER_WHITE, WIN)
+                winnerDisplay.draw()
+            else:
+                winnerDisplay = WinnerDisplay(WINNER_BLACK, WIN)
+                winnerDisplay.draw()
+            pygame.display.update()
+            time.sleep(2)
+
             game.reset()
 
         for event in pygame.event.get():

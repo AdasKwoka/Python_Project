@@ -36,7 +36,6 @@ class Game:
             if not result:
                 self.selected = None
                 self.select(row, col)
-        print(row, col)
         piece = self.board.get_piece(row, col)
         if piece != 0 and piece.color == self.turn:
             self.selected = piece

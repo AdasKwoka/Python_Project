@@ -17,4 +17,6 @@ SMALLFONT = pygame.font.SysFont("assets/Roboto/Roboto-Black.ttf", 25)
 
 WHITE_TURN = "Tura gracza bialego"
 BLACK_TURN = "Tura gracza czarnego"
+WINNER_BLACK = "Wygrywa gracz 1"
+WINNER_WHITE = "Wygrywa gracz 2"
 BIGFONT = pygame.font.SysFont("assets/Roboto/Roboto-Black.ttf", 35)
